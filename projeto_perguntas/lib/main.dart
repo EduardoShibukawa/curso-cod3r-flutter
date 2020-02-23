@@ -32,7 +32,7 @@ class PerguntaApp extends StatelessWidget{
              RaisedButton(
                child: Text('Resposta 2'),
                onPressed: () {
-                 print("Resposta 2 foi respondida")
+                 print("Resposta 2 foi respondida");
                },
              ),
              RaisedButton(
