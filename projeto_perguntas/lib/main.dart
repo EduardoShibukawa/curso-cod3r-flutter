@@ -5,6 +5,11 @@ main() => runApp(new PerguntaApp());
 
 
 class PerguntaApp extends StatelessWidget{
+
+  void responder() {
+    print('Resposta respondida!!');
+  }
+
   @override
   Widget build(BuildContext context) {    
     final perguntas = [
@@ -22,15 +27,17 @@ class PerguntaApp extends StatelessWidget{
             Text(perguntas[0]),
              RaisedButton(
                child: Text('Resposta 1'),
-               onPressed: null,
+               onPressed: responder,
              ),
              RaisedButton(
                child: Text('Resposta 2'),
-               onPressed: null,
+               onPressed: () {
+                 print("Resposta 2 foi respondida")
+               },
              ),
              RaisedButton(
                child: Text('Resposta 3'),
-               onPressed: null,
+               onPressed: () => print("Resposta 3 foi respondida!"),
              ),             
           ],
         ),
