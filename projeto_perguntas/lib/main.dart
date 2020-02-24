@@ -6,7 +6,6 @@ import './resposta.dart';
 main() => runApp(new PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-
   var _perguntaSelecionada = 0;
 
   final _perguntas = const [
@@ -28,7 +27,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
-      });    
+      });
     }
   }
 
@@ -56,7 +55,12 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   ...respostas.map((t) => Resposta(t, _responder)).toList()
                 ],
               )
-            : null,
+            : Center(
+                child: Text(
+                  "Parabéns!",
+                  style: TextStyle(fontSize: 28),
+                ),
+              ),
       ),
     );
   }
