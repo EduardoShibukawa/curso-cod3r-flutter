@@ -9,41 +9,42 @@ main() => runApp(new PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
-
+  var _pontuacaoTotal = 0;
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Preto', 'nota': 10.0},
-        {'texto': 'Vermelho', 'nota': 5.0},
-        {'texto': 'Verde', 'nota': 3.0},
-        {'texto': 'Branco', 'nota': 1.0},
+        {'texto': 'Preto', 'pontuacao': 10},
+        {'texto': 'Vermelho', 'pontuacao': 5},
+        {'texto': 'Verde', 'pontuacao': 3},
+        {'texto': 'Branco', 'pontuacao': 1},
       ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
       'respostas': [
-        {'texto': 'Coelho', 'nota': 10.0},
-        {'texto': 'Cobra', 'nota': 5.0},
-        {'texto': 'Elefante', 'nota': 3.0},
-        {'texto': 'Leao', 'nota': 1},
+        {'texto': 'Coelho', 'pontuacao': 10},
+        {'texto': 'Cobra', 'pontuacao': 5},
+        {'texto': 'Elefante', 'pontuacao': 3},
+        {'texto': 'Leao', 'pontuacao': 1},
       ]
     },
     {
       'texto': 'Qual é o seu instrutor favorito?',
       'respostas': [
-        {'texto': 'Maria', 'nota': 10.0},
-        {'texto': 'Joao', 'nota': 5.0},
-        {'texto': 'Leo', 'nota': 3.0},
-        {'texto': 'Pedro', 'nota': 1.0},
+        {'texto': 'Maria', 'pontuacao': 10},
+        {'texto': 'Joao', 'pontuacao': 5},
+        {'texto': 'Leo', 'pontuacao': 3},
+        {'texto': 'Pedro', 'pontuacao': 1},
       ]
     },
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
   }
@@ -65,7 +66,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   perguntaSelecionada: _perguntaSelecionada,
                   quandoResponder: _responder,
                 )
-              : Resultado()),
+              : Resultado(pontuacao: _pontuacaoTotal,)),
     );
   }
 }
