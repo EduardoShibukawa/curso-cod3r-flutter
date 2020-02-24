@@ -4,7 +4,7 @@ class Questao extends StatelessWidget {
   
   final String texto;
 
-  Questao({this.texto});
+  Questao(this.texto);
 
   @override
   Widget build(BuildContext context) {
