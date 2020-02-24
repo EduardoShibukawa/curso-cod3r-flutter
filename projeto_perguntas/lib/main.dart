@@ -6,7 +6,6 @@ import './resposta.dart';
 main() => runApp(new PerguntaApp());
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  
   var _perguntaSelecionada = 0;
 
   void _responder() {
@@ -34,11 +33,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
       },
     ];
 
-    List<Widget> respostas = [];
-
-    for (String textoResp in perguntas[_perguntaSelecionada]['respostas']) {
-      respostas.add(Resposta(textoResp, _responder));
-    }
+    List<String> respostas = perguntas[_perguntaSelecionada]['respostas'];
 
     return MaterialApp(
       home: Scaffold(
@@ -50,7 +45,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
             Questao(
               texto: perguntas[_perguntaSelecionada]['texto'],
             ),
-            ...respostas
+            ...respostas.map((t) => Resposta(t, _responder)).toList()
           ],
         ),
       ),
@@ -59,7 +54,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
 }
 
 class PerguntaApp extends StatefulWidget {
-  
   _PerguntaAppState createState() {
     return _PerguntaAppState();
   }
