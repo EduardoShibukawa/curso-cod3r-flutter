@@ -53,6 +53,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
     return _perguntaSelecionada < _perguntas.length;
   }
 
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,7 +73,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   perguntaSelecionada: _perguntaSelecionada,
                   quandoResponder: _responder,
                 )
-              : Resultado(pontuacao: _pontuacaoTotal,)),
+              : Resultado(
+                  pontuacao: _pontuacaoTotal,
+                  quandoReiniciarQuestionario: _reiniciarQuestionario,
+                )),
     );
   }
 }
